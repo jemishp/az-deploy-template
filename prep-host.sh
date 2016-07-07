@@ -103,7 +103,7 @@ if [[ "${HOSTNAME}" == *"mdw"* ]] ; then
 
     curl -o /home/gpadmin/greenplum-cc-web.zip -d "" -H "Authorization: Token ${APITOKEN}" -L https://network.pivotal.io/api/v2/products/pivotal-gpdb/releases/1683/product_files/5097/download
 
-    /usr/bin/unzip /home/gpadmin/greenplum-cc-web-*.zip
+    unzip /home/gpadmin/greenplum-cc-web.zip
 
     chown gpadmin:gpadmin /home/gpadmin/greenplum-cc-web-*
     chmod u+x /home/gpadmin/greenplum-cc-web-*
