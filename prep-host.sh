@@ -32,7 +32,7 @@ rm -f /root/.ssh/id_rsa.pub
 # Generate ssh folder/key with right permissions, then overwrite
 su gpadmin -c 'ssh-keygen -P "" -f /home/gpadmin/.ssh/id_rsa'
 echo -e "${SSHPRIVKEY}" > /home/gpadmin/.ssh/id_rsa
-sed -i -e 's/ /\n/4g;s/\n/ /27g' /root/.ssh/id_rsa
+sed -i -e 's/ /\n/4g;s/\n/ /27g' /home/gpadmin/.ssh/id_rsa
 rm -f /home/gpadmin/.ssh/id_rsa.pub
 
 # Make sure root has passwordless SSH as well
