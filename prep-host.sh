@@ -112,7 +112,7 @@ if [[ "${HOSTNAME}" == *"mdw"* ]] ; then
     sed -i 's/agreed=/agreed=1/' /home/gpadmin/greenplum-cc-web-*.bin
     sed -i 's/pathVerification=/pathVerification=1/' /home/gpadmin/greenplum-cc-web-*.bin
     sed -i '/defaultInstallPath=/a installPath=${defaultInstallPath}' /home/gpadmin/greenplum-cc-web-*.bin
-    
+
 
     for GPCCINSTALLBINARY in /home/gpadmin/greenplum-cc-web-*.bin
     do
@@ -300,6 +300,9 @@ yum install centos-release-scl -y
 
 # Install GCC 4.9
 yum install devtoolset-3-gcc -y
+
+# Install git
+yum install git -y
 
 # Download repofile for Boost154, cpprest, ORC for Wasb2Orc
 wget https://bintray.com/kdunn926/AzureLinux/rpm -O /etc/yum.repos.d/bintray-kdunn926-AzureLinux.repo
