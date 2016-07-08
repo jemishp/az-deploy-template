@@ -55,6 +55,8 @@ EOF
 # Install an configure fail2ban for the script kiddies
 yum install epel-release -y
 yum install fail2ban -y
+# Install git
+yum install git -y
 
 cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 
@@ -300,9 +302,6 @@ yum install centos-release-scl -y
 
 # Install GCC 4.9
 yum install devtoolset-3-gcc -y
-
-# Install git
-yum install git -y
 
 # Download repofile for Boost154, cpprest, ORC for Wasb2Orc
 wget https://bintray.com/kdunn926/AzureLinux/rpm -O /etc/yum.repos.d/bintray-kdunn926-AzureLinux.repo
