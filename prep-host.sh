@@ -54,23 +54,23 @@ EOF
 
 # Install an configure fail2ban for the script kiddies
 yum install epel-release -y
-yum install fail2ban -y
-
-cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
-
-sed -ie "s|ignoreip = 127\.0\.0\.1/8|ignoreip = 127.0.0.1/8\nignoreip = ${IPADDR}/24|" /etc/fail2ban/jail.local
-
-echo -e "\n\n
-[ssh-iptables]
-enabled  = true
-filter   = sshd
-action   = iptables[name=SSH, port=ssh, protocol=tcp]
-logpath  = /var/log/secure
-maxretry = 5
-" >> /etc/fail2ban/jail.local
-
-service fail2ban start
-chkconfig fail2ban on
+#yum install fail2ban -y
+#
+#cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+#
+#sed -ie "s|ignoreip = 127\.0\.0\.1/8|ignoreip = 127.0.0.1/8\nignoreip = ${IPADDR}/24|" /etc/fail2ban/jail.local
+#
+#echo -e "\n\n
+#[ssh-iptables]
+#enabled  = true
+#filter   = sshd
+#action   = iptables[name=SSH, port=ssh, protocol=tcp]
+#logpath  = /var/log/secure
+#maxretry = 5
+#" >> /etc/fail2ban/jail.local
+#
+#service fail2ban start
+#chkconfig fail2ban on
 
 yum install xfsprogs -y
 
