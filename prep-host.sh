@@ -112,7 +112,7 @@ if [[ "${HOSTNAME}" == *"mdw"* ]] ; then
     sed -i 's/agreed=/agreed=1/' /home/gpadmin/greenplum-cc-web-*.bin
     sed -i 's/pathVerification=/pathVerification=1/' /home/gpadmin/greenplum-cc-web-*.bin
     sed -i '/defaultInstallPath=/a installPath=${defaultInstallPath}' /home/gpadmin/greenplum-cc-web-*.bin
-    
+
 
     for GPCCINSTALLBINARY in /home/gpadmin/greenplum-cc-web-*.bin
     do
