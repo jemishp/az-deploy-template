@@ -7,6 +7,7 @@ APITOKEN=$4
 SSHPRIVKEY=$5
 IP_PREFIX=$6
 SEGMENT_IP_BASE=$7
+SSHKEY=$8
 
 #Print what we received as arguements
 echo "$0 $*"
@@ -27,17 +28,18 @@ ssh-keyscan ${HOSTNAME} | tee --append /etc/ssh/ssh_known_hosts
 ssh-keygen -P "" -f /root/.ssh/id_rsa
 echo -e "${SSHPRIVKEY}" > /root/.ssh/id_rsa
 sed -i -e 's/ /\n/4g;s/\n/ /27g' /root/.ssh/id_rsa
-rm -f /root/.ssh/id_rsa.pub
+echo -e "${SSHKEY}" > /root/.ssh/id_rsa.pub
+echo -e "${SSHKEY}" > /root/.ssh/authorized_keys
+chown root:root /root/.ssh/authorized_keys
 
 # Generate ssh folder/key with right permissions, then overwrite
 su gpadmin -c 'ssh-keygen -P "" -f /home/gpadmin/.ssh/id_rsa'
 echo -e "${SSHPRIVKEY}" > /home/gpadmin/.ssh/id_rsa
 sed -i -e 's/ /\n/4g;s/\n/ /27g' /home/gpadmin/.ssh/id_rsa
-rm -f /home/gpadmin/.ssh/id_rsa.pub
+echo -e "${SSHKEY}" > /home/gpadmin/.ssh/id_rsa.pub
+echo -e "${SSHKEY}" > /home/gpadmin/.ssh/authorized_keys
+chown gpadmin:gpadmin /home/gpadmin/.ssh/*
 
-# Make sure root has passwordless SSH as well
-cp /home/gpadmin/.ssh/authorized_keys /root/.ssh/
-chown root:root /root/.ssh/authorized_keys
 
 # Disable selinux
 sed -ie "s|SELINUX=enforcing|SELINUX=disabled|" /etc/selinux/config
