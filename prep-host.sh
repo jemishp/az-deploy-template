@@ -15,6 +15,9 @@ echo "$0 $*"
 # Enable IP<->hostname mapping
 echo -e "\n${IPADDR} ${HOSTNAME}" | tee --append /etc/hosts
 
+# Sethostname
+sudo hostname ${HOSTANME}
+
 # Allow passwordless sudo
 sed -i -e 's/ALL$/NOPASSWD: ALL/' /etc/sudoers.d/waagent
 
