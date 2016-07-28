@@ -188,6 +188,17 @@
               "createOption": "Empty"
             }
           ],
+          "dataDisks": [
+            {
+              "name": "datadisk1",
+              "diskSizeGB": "[parameters('vmSpec').segmentNodeDataDiskGB]",
+              "lun": 0,
+              "vhd": {
+                "Uri": "[concat(variables('diskVhdBaseName'), copyIndex(1), 'datadisk1.vhd')]"
+              },
+              "createOption": "Empty"
+            }
+          ],
           "osDisk": {
             "name": "osdisk",
             "vhd": {
