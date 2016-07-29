@@ -29,16 +29,16 @@
     "clusterSpec": {
       "type": "object"
     },
-    "role": { 
+    "role": {
       "type": "array",
-        "defaultValue": [ 
-         "", 
-         "s" 
-      ] 
+        "defaultValue": [
+         "",
+         "s"
+      ]
     }
   },
   "variables": {
-    "vmName": "mdw", 
+    "vmName": "mdw",
     "sshKeyPath": "[concat('/home/',parameters('vmSpec').adminUsername,'/.ssh/authorized_keys')]",
     "publicIPAddressType": "Dynamic",
     "securityGroupName": "[concat(parameters('networkSpec').virtualNetworkName, '-master-sg')]",
