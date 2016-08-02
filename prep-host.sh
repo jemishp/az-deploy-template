@@ -78,6 +78,7 @@ yum install epel-release -y
 #chkconfig fail2ban on
 
 yum install xfsprogs -y
+yum install iperf -y
 
 if [[ "${HOSTNAME}" == *"mdw"* ]] ; then
 
