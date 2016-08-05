@@ -185,6 +185,7 @@
               "vhd": {
                 "Uri": "[concat(variables('diskVhdBaseName'), copyIndex(1), 'datadisk0.vhd')]"
               },
+              "caching": "ReadWrite",
               "createOption": "Empty"
             },
             {
@@ -194,6 +195,7 @@
               "vhd": {
                 "Uri": "[concat(variables('diskVhdBaseName'), copyIndex(1), 'datadisk1.vhd')]"
               },
+              "caching": "ReadWrite",
               "createOption": "Empty"
             }
           ],

@@ -220,6 +220,7 @@
               "vhd": {
                 "Uri": "[concat(variables('diskVhdBaseName'), parameters('role')[copyIndex()], variables('vmName'), '-datadisk0.vhd')]"
               },
+              "caching": "ReadWrite",
               "createOption": "Empty"
             }
           ],
