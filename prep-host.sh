@@ -265,7 +265,7 @@ net.core.netdev_max_backlog = 10000
 net.core.rmem_max = 2097152
 net.core.wmem_max = 2097152
 vm.overcommit_memory = 2
-vm.overcommit_ratio = 100
+vm.overcommit_ratio = 95
 # Azure Networking Bits
 net.core.rmem_max = 134217728
 net.core.wmem_max = 134217728
