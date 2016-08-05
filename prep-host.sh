@@ -80,6 +80,12 @@ yum install epel-release -y
 yum install xfsprogs -y
 yum install iperf -y
 
+#Configure 50GB swap file on ephemeral disk for all nodes
+fallocate -l 50g /mnt/resource/swapfile
+chmod 600 /mnt/resource/swapfile
+mkswap /mnt/resource/swapfile
+swapon /mnt/resource/swapfile
+
 if [[ "${HOSTNAME}" == *"mdw"* ]] ; then
 
     # Work out of the gpadmin home directory
